@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Index() {
   const [listMerchants, setMerchants ] = useState([{}]);
   let data = localStorage.getItem("user-info");
+
   data = JSON.parse(data);
 
   async function getMerchants() {
@@ -41,7 +43,7 @@ function Index() {
           <tbody>
           {
             listMerchants.map((item) => (
-              <tr>
+              <tr key={`${item.id}`} >
                 <td className='px-9'>{item.id}</td>
                 <td className='px-20'>{item.name}</td>
                 <td className='px-9'>{item.phone}</td>
@@ -56,6 +58,10 @@ function Index() {
         <button className="btn btn-primary" onClick={getMerchants}
           >Get Merchants
           </button>
+      </div>
+      <br />
+      <div className='flex flex-col items-center'>
+          <Link to="/login/merchant/create">CreateMerchant</Link>
       </div>
     </>
 

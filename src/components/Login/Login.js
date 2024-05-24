@@ -24,7 +24,7 @@ function Login() {
     result = await result.json();
     localStorage.setItem("user-info", JSON.stringify(result));
 
-    if (result.error) {
+    if (result.success === false) {
       alert("Invalid User");
     }
     else {

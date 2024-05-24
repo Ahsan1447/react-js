@@ -9,17 +9,12 @@ import Logout from './components/Logout/Logout';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Index from './components/Merchant/Index';
+import Create from './components/Merchant/Create';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Login />
-    // children: [
-    //   {
-    //     path: '',
-    //     element: <Logout />
-    //   }
-    // ]
   },
   {
     path: '/logout',
@@ -32,7 +27,10 @@ const router = createBrowserRouter([
   {
     path: '/login/merchant',
     element: <Index />
-
+  },
+  {
+    path: '/login/merchant/create',
+    element: <Create />
   }
 ])
 
