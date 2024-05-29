@@ -59,40 +59,52 @@ function Index() {
 
   return (
     <>
-      <div className="flex flex-inline justify-center justify-item-center">
-        Merchants
-      </div>
+      <div className='h-screen bg-black'>
+        <div className="flex flex-inline justify-center justify-item-center bg-black text-white">
+          Merchants
+        </div>
 
-      <div>
-        {listMerchants?.length > 0 ? (
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th className='px-9'>Id</th>
-                <th className='px-9'>Name</th>
-                <th className='px-9'>Phone</th>
-                <th className='px-9'>action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {listMerchants?.map((item) => (
-                <tr key={`${item?.id}`} >
-                  <td className='px-9'>{item?.id}</td>
-                  <td className='px-20'>{item?.name}</td>
-                  <td className='px-9'>{item?.phone}</td>
-                  <td className='px-9' ><a href='#'onClick={()=>handlDelete(item?.id)}>Delete</a>  <Link to='/login/merchant/create' state={{item: item}} >Edit</Link></td>
+        <div className='flex  flex-inline justify-center m-1'>
+          {listMerchants?.length > 0 ? (
+            <table className='bg-gray-300'>
+              <thead>
+                <tr className='bg-black text-white'>
+                  <th className='px-9'>ID</th>
+                  <th className='px-9'>Name</th>
+                  <th className='px-9'>Phone</th>
+                  <th className='px-9'>Publish Satus</th>
+                  <th className='px-9'>Satus</th>
+                  <th className='px-9'>CTIC Satus</th>
+                  <th className='px-9'>Is Active</th>
+                  <th className='px-9'>Store_ids</th>
+                  <th className='px-9'>action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
+              </thead>
+              <tbody>
+                {listMerchants?.map((item) => (
+                  <tr key={`${item?.id}`} >
+                    <td className='px-9'>{item?.id}</td>
+                    <td className='px-20'>{item?.name}</td>
+                    <td className='px-9'>{item?.phone}</td>
+                    <td className='px-9'>{item?.publish_status}</td>
+                    <td className='px-9'>{item?.staus}</td>
+                    <td className='px-9'>{item?.ctic_status}</td>
+                    <td className='px-9'>{item?.is_active}</td>
+                    <td className='px-9'>{item['stores']?.map(store => store?.id).join(',')}</td>
+                    <td className='px-9' ><a href='#'onClick={()=>handlDelete(item?.id)}>Delete</a>  <Link to='/login/merchant/create' state={{item: item}} >Edit</Link> <Link to='/login/merchant/upload_image' state={{item: item}} >UplaodImage</Link></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
 
-      <br />
-      <div className='flex flex-col items-center'>
-        <Link to="/login/merchant/create">Create Merchant</Link>
+        <br />
+        <div className='flex flex-col items-center bg-black text-white'>
+          <Link to="/login/merchant/create">Create Merchant</Link>
+        </div>
       </div>
     </>
   );

@@ -37,27 +37,31 @@ function Login() {
 
   return (
     <>
-        <div className='flex flex-col'>
-          username: <input type="email" placeholder="email" className="form-controller"
+      <div className='bg-black h-screen flex flex-col justify-center  items-center rounded-md border-gray-300 text-gray-300'>
+        <div className='flex flex-col items-center'>
+          <label className='m-5'>Enter username:</label>
+          <input type="email" placeholder="email" className='rounded-md'
             onChange={(e)=>setEmail(e.target.value)}>
           </input>
         </div>
 
-        <div className='flex flex-col'>
-          password: <input type="password" placeholder="password" className="form-controller"
+        <div className='flex flex-col items-center rounded-md'>
+          <label className='m-3'>Enter password:</label>
+          <input type="password" placeholder="password" className='rounded-md'
             onChange={(e)=>setPassword(e.target.value)}>
           </input>
         </div>
 
-        <div className='flex flex-col'>
+        <div >
           <button type="submit" className="btn btn-primary flex flex-col justify-center items-center"
             onClick={login}>
           Login </button>
         </div>
 
-        <div className='flex flex-col items-center'>
+        <div>
           <Link to="/signup">Signup</Link>
         </div>
+      </div>
     </>
   );
 }

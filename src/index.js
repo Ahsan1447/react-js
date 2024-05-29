@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Index from './components/Merchant/Index';
 import Create from './components/Merchant/Create';
+import UploadImage from './components/Merchant/UplaodImage';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: '/login/merchant/create',
     element: <Create />
+  },
+  {
+    path: '/login/merchant/upload_image',
+    element: <UploadImage />
   }
 ])
 
